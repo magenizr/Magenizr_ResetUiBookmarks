@@ -12,7 +12,7 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="admin">
-        <route id="magenizr_resetuibookmarks" frontName="magenizr_resetuibookmarks">
+        <route id="resetuibookmarks" frontName="resetuibookmarks">
             <module name="Magenizr_ResetUiBookmarks" before="Magento_Backend" />
         </route>
     </router>

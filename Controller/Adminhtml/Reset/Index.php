@@ -8,7 +8,7 @@
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
 
-namespace Magenizr\ResetUiBookmarks\Controller\Adminhtml\ResetUiBookmarks;
+namespace Magenizr\ResetUiBookmarks\Controller\Adminhtml\Reset;
 
 class Index extends \Magento\Backend\App\Action
 {
@@ -34,6 +34,7 @@ class Index extends \Magento\Backend\App\Action
      */
     public function execute()
     {
+        die('fuck');
 
         $userId = $this->_auth->getUser()->getId();
 
