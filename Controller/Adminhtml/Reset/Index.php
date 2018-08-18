@@ -34,8 +34,6 @@ class Index extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        die('fuck');
-
         $userId = $this->_auth->getUser()->getId();
 
         try {
