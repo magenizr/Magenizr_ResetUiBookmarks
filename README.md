@@ -21,7 +21,7 @@ Usually a technical person ( e.g developer ) is required to reset those filters 
 Simply hit the button `Reset UI Bookmarks` to clear the bookmarks and wait for the confirmation `Your UI bookmarks were cleared successfully`. After that all filters and grid settings are set back to default. More details are available in the attached user guide.
 
 ## System Requirements
-- Magento 2.1.x, 2.2.x
+- Magento 2.x
 - PHP 5.6.x, 7.x
 
 ## Installation (Composer)
