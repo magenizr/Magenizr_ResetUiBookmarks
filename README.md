@@ -60,6 +60,9 @@ php bin/magento setup:upgrade
 ## Support
 If you have any issues with this extension, open an issue on [GitHub](https://github.com/magenizr/Magenizr_ResetUiBookmarks/issues).
 
+## Purchase
+This module is available for free on [GitHub](https://github.com/magenizr). If you purchase the module on [Magento Marketplace](https://marketplace.magento.com/partner/magenizr) we offer three month warranty / free support.
+
 ## Contact
 Follow us on [GitHub](https://github.com/magenizr), [Twitter](https://twitter.com/magenizr) and [Facebook](https://www.facebook.com/magenizr).
 
