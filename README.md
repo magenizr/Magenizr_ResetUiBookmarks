@@ -1,9 +1,9 @@
 # Magenizr ResetUiBookmarks
 Reset UI Bookmarks becomes an invaluable tool while working daily in the admin panel, especially on Magento® instances with a large catalogue. The regular use of grid filters, applied sorting ( e.g `Sales > Orders or Catalog > Product` ) or other options provided by third party integrations can cause server time-outs ( depending on the filter combinations ) and make the grid tables unusable. With Reset UI Bookmarks any admin user can reset their filters back to default without having an agency support team involved.
 
-![Magenizr ResetUiBookmarks - Intro](https://download.magenizr.com/pub/magenizr_resetuibookmarks/all/intro.gif)
+![Magenizr ResetUiBookmarks - Intro](http://download.magenizr.com/pub/magenizr_resetuibookmarks/all/intro.gif)
 
-![Magenizr ResetUiBookmarks - Backend](https://download.magenizr.com/pub/magenizr_resetuibookmarks/all/backend/01.gif)
+![Magenizr ResetUiBookmarks - Backend](http://download.magenizr.com/pub/magenizr_resetuibookmarks/all/backend/01.gif)
 
 ## Business Value
 Usually a technical person ( e.g developer ) is required to reset those filters back to default. This can be annoying for a client and create unnecessarily noise for a developer team. Here are the advantages of Reset UI Bookmarks.
