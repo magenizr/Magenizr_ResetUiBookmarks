@@ -16,7 +16,7 @@ Usually a technical person ( e.g developer ) is required to reset those filters 
 
 ## Installation (Composer)
 
-1. Update your composer.json `composer require "magenizr/magento2-resetuibookmarks":"1.0.2"`
+1. Update your composer.json `composer require "magenizr/magento2-resetuibookmarks":"1.0.3"`
 2. Install dependencies and update your composer.lock `composer update --lock`
 
 ```
@@ -24,7 +24,7 @@ Usually a technical person ( e.g developer ) is required to reset those filters 
 Loading composer repositories with package information
 Updating dependencies (including require-dev)              
 Package operations: 1 install, 0 updates, 0 removals
-  - Installing magenizr/magento2-resetuibookmarks (1.0.2): Downloading (100%)         
+  - Installing magenizr/magento2-resetuibookmarks (1.0.3): Downloading (100%)         
 Writing lock file
 Generating autoload files
 ```
@@ -38,7 +38,7 @@ php bin/magento setup:upgrade
 
 ## Installation (Manually)
 1. Download the code.
-2. Extract the downloaded tar.gz file. Example: `tar -xzf Magenizr_ResetUiBookmarks_1.0.2.tar.gz`.
+2. Extract the downloaded tar.gz file. Example: `tar -xzf Magenizr_ResetUiBookmarks_1.0.3.tar.gz`.
 3. Copy the code into `./app/code/Magenizr/ResetUiBookmarks/`.
 4. Enable the module and clear static content.
 
@@ -65,6 +65,9 @@ This module is available for free on [GitHub](https://github.com/magenizr). If y
 Follow us on [GitHub](https://github.com/magenizr), [Twitter](https://twitter.com/magenizr) and [Facebook](https://www.facebook.com/magenizr).
 
 ## History
+===== 1.0.3 =====
+* Cleanup in `resetuibookmarks.phtml`
+
 ===== 1.0.2 =====
 * Magento 2.4.x compatibility added
 
