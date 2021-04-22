@@ -13,17 +13,17 @@
     <div class="divider"></div>
     <fieldset class="fieldset admin__fieldset " id="magenizr_resetuibookmarks">
         <legend class="admin__legend">
-            <span><?php echo __('Reset UI Bookmarks') ?></span>
+            <span><?= $block->escapeHtml(__('Reset UI Bookmarks')) ?></span>
         </legend><br>
 
         <div class="admin__field">
             <label class="label admin__field-label"></label>
             <div class="admin__field-control control">
-                <a href="<?php echo $block->getUrl('magenizr_resetuibookmarks/reset/index', ['_current' => true, '_use_rewrite' => true]); ?>" class="action-default scalable button-danger">
-                    <span><?php echo __('Reset UI Bookmarks') ?></span>
+                <a href="<?= $block->escapeUrl($block->getUrl('magenizr_resetuibookmarks/reset/index', ['_current' => true, '_use_rewrite' => true])) ?>" class="action-default scalable button-danger">
+                    <span><?= $block->escapeHtml(__('Reset UI Bookmarks')) ?></span>
                 </a>
                 <span class="hint">
-                    <?php echo __('This will reset your UI bookmarks such as state of filters, column positions, grid sorting, pagination and so on.') ?>
+                    <?= $block->escapeHtml(__('This will reset your UI bookmarks such as state of filters, column positions, grid sorting, pagination and so on.')) ?>
                 </span>
             </div>
         </div>
