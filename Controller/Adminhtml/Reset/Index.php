@@ -4,7 +4,7 @@
  *
  * @category    Magenizr
  * @package     Magenizr_ResetUiBookmarks
- * @copyright   Copyright (c) 2018 Magenizr (http://www.magenizr.com)
+ * @copyright   Copyright (c) 2018 - 2021 Magenizr (http://www.magenizr.com)
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
 
@@ -21,10 +21,12 @@ class Index extends \Magento\Backend\App\Action
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
+        \Magento\Framework\App\RequestInterface $request,
         \Magento\Ui\Api\Data\BookmarkInterfaceFactory $bookmarkFactory,
         \Magento\Ui\Model\ResourceModel\BookmarkRepository $bookmarkRepository
     ) {
         parent::__construct($context);
+        $this->request = $request;
         $this->bookmarkFactory = $bookmarkFactory;
         $this->bookmarkRepository = $bookmarkRepository;
     }
@@ -39,6 +41,15 @@ class Index extends \Magento\Backend\App\Action
         try {
             $collection = $this->bookmarkFactory->create()->getCollection();
             $collection->addFieldToFilter('user_id', ['eq' => $userId]);
+
+            switch ($this->request->getParam('identifier')) {
+                case 'saved-only':
+                    $collection->addFieldToFilter('identifier', ['like' => '_%']);
+                    break;
+                case 'saved-exclude':
+                    $collection->addFieldToFilter('identifier', ['in' => ['current','default']]);
+                    break;
+            }
 
             foreach ($collection->getItems() as $bookmark) {
                 $this->bookmarkRepository->deleteById($bookmark->getBookmarkId());

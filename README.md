@@ -1,7 +1,7 @@
-# Magenizr ResetUiBookmarks
+# Reset Ui Bookmarks
 Reset UI Bookmarks becomes an invaluable tool while working daily in the admin panel, especially on Magento® instances with a large catalogue. The regular use of grid filters, applied sorting ( e.g `Sales > Orders or Catalog > Product` ) or other options provided by third party integrations can cause server time-outs ( depending on the filter combinations ) and make the grid tables unusable. With Reset UI Bookmarks any admin user can reset their filters back to default without having an agency support team involved.
 
-![Magenizr ResetUiBookmarks - Backend](https://images2.imgbox.com/3d/49/063GY3oB_o.gif)
+![Magenizr ResetUiBookmarks - Backend](https://images2.imgbox.com/24/58/jH70l3Si_o.png)
 
 ## Business Value
 Usually a technical person ( e.g developer ) is required to reset those filters back to default. This can be annoying for a client and create unnecessarily noise for a developer team. Here are the advantages of Reset UI Bookmarks.
@@ -16,7 +16,7 @@ Usually a technical person ( e.g developer ) is required to reset those filters 
 
 ## Installation (Composer)
 
-1. Update your composer.json `composer require "magenizr/magento2-resetuibookmarks":"1.0.3"`
+1. Update your composer.json `composer require "magenizr/magento2-resetuibookmarks":"1.1.0"`
 2. Install dependencies and update your composer.lock `composer update --lock`
 
 ```
@@ -24,7 +24,7 @@ Usually a technical person ( e.g developer ) is required to reset those filters 
 Loading composer repositories with package information
 Updating dependencies (including require-dev)              
 Package operations: 1 install, 0 updates, 0 removals
-  - Installing magenizr/magento2-resetuibookmarks (1.0.3): Downloading (100%)         
+  - Installing magenizr/magento2-resetuibookmarks (1.1.0): Downloading (100%)         
 Writing lock file
 Generating autoload files
 ```
@@ -38,7 +38,7 @@ php bin/magento setup:upgrade
 
 ## Installation (Manually)
 1. Download the code.
-2. Extract the downloaded tar.gz file. Example: `tar -xzf Magenizr_ResetUiBookmarks_1.0.3.tar.gz`.
+2. Extract the downloaded tar.gz file. Example: `tar -xzf Magenizr_ResetUiBookmarks_1.1.0.tar.gz`.
 3. Copy the code into `./app/code/Magenizr/ResetUiBookmarks/`.
 4. Enable the module and clear static content.
 
@@ -50,7 +50,7 @@ php bin/magento setup:upgrade
 ## Features
 * A red button `Reset UI Bookmarks` is available on the `Account Settings` page for each admin user.
 * Once a admin user hits the button `Reset UI Bookmarks`, it will clear the history of state of filters, column positions or applied sorting which are stored in the MySQL table `ui_bookmark`.
-* It doesn't delete any other data related to the grid.
+* Choose between the options `All Bookmarks`, `Saved Filters Only` and `Keep Saved Filters`
 
 ## Usage
 Simply hit the button `Reset UI Bookmarks` to clear the bookmarks and wait for the confirmation `Your UI bookmarks were cleared successfully`. After that all filters and grid settings are set back to default. More details are available in the attached user guide.
@@ -65,6 +65,9 @@ This module is available for free on [GitHub](https://github.com/magenizr). If y
 Follow us on [GitHub](https://github.com/magenizr), [Twitter](https://twitter.com/magenizr) and [Facebook](https://www.facebook.com/magenizr).
 
 ## History
+===== 1.1.0 =====
+* Choose between the options `All Bookmarks`, `Saved Filters Only` and `Keep Saved Filters`
+
 ===== 1.0.3 =====
 * Cleanup in `resetuibookmarks.phtml`
 
