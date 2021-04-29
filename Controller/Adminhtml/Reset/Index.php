@@ -39,6 +39,7 @@ class Index extends \Magento\Backend\App\Action
         try {
             $collection = $this->bookmarkFactory->create()->getCollection();
             $collection->addFieldToFilter('user_id', ['eq' => $userId]);
+            $collection->addFieldToFilter('identifier', ['eq' => 'current']);
 
             foreach ($collection->getItems() as $bookmark) {
                 $this->bookmarkRepository->deleteById($bookmark->getBookmarkId());
