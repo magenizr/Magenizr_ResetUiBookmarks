@@ -41,7 +41,6 @@ class Index extends \Magento\Backend\App\Action
         try {
             $collection = $this->bookmarkFactory->create()->getCollection();
             $collection->addFieldToFilter('user_id', ['eq' => $userId]);
-            $collection->addFieldToFilter('identifier', ['eq' => 'current']);
 
             switch ($this->request->getParam('identifier')) {
                 case 'saved-only':
