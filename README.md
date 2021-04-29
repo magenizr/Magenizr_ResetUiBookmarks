@@ -16,7 +16,7 @@ Usually a technical person ( e.g developer ) is required to reset those filters 
 
 ## Installation (Composer)
 
-1. Update your composer.json `composer require "magenizr/magento2-resetuibookmarks":"1.1.0"`
+1. Update your composer.json `composer require "magenizr/magento2-resetuibookmarks":"1.1.0" --no-update`
 2. Install dependencies and update your composer.lock `composer update --lock`
 
 ```
