@@ -1,10 +1,7 @@
 <!--
 /**
  * Magenizr ResetUiBookmarks
- *
- * @category    Magenizr
- * @package     Magenizr_ResetUiBookmarks
- * @copyright   Copyright (c) 2018 - 2021 Magenizr (http://www.magenizr.com)
+ * @copyright   Copyright (c) 2018 - 2022 Magenizr (https://www.magenizr.com)
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
 -->
@@ -13,29 +10,29 @@
     <div class="divider"></div>
     <fieldset class="fieldset admin__fieldset " id="magenizr_resetuibookmarks">
         <legend class="admin__legend">
-            <span><?= $block->escapeHtml(__('Reset UI Bookmarks')) ?></span>
+            <span><?= $escaper->escapeHtml(__('Reset UI Bookmarks')) ?></span>
         </legend><br>
 
         <div class="admin__field">
             <label class="label admin__field-label"></label>
             <div class="admin__field-control control">
 
-                <form action="<?= $block->escapeUrl($block->getUrl('magenizr_resetuibookmarks/reset/index', ['_current' => true, '_use_rewrite' => true])) ?>" method="get">
+                <form action="<?= $escaper->escapeUrl($block->getUrl('magenizr_resetuibookmarks/reset/index', ['_current' => true, '_use_rewrite' => true])) ?>" method="get">
 
                     <button id="save" title="Save Account" type="submit" class="action-default scalable button-danger" role="button" aria-disabled="false">
-                        <span><?= $block->escapeHtml(__('Reset UI Bookmarks')) ?></span>
+                        <span><?= $escaper->escapeHtml(__('Reset UI Bookmarks')) ?></span>
                     </button>
 
                     <select id="identifier" name="identifier" title="Identifier" class="select select admin__control-select">
-                        <option value="all"><?= $block->escapeHtml(__('All Bookmarks')) ?></option>
-                        <option value="saved-only"><?= $block->escapeHtml(__('Saved Filters Only')) ?></option>
-                        <option value="saved-exclude"><?= $block->escapeHtml(__('Keep Saved Filters')) ?></option>
+                        <option value="saved-exclude"><?= $escaper->escapeHtml(__('Keep Saved Filters')) ?></option>
+                        <option value="saved-only"><?= $escaper->escapeHtml(__('Saved Filters Only')) ?></option>
+                        <option value="all"><?= $escaper->escapeHtml(__('All Bookmarks')) ?></option>
                     </select>
 
                 </form>
 
                 <span class="hint">
-                    <?= $block->escapeHtml(__('This will reset your UI bookmarks such as state of filters, column positions, grid sorting, pagination and so on.')) ?>
+                    <?= $escaper->escapeHtml(__('This will reset your UI bookmarks such as state of filters, column positions, grid sorting, pagination and so on.')) ?>
                 </span>
             </div>
         </div>

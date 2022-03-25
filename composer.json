@@ -2,7 +2,7 @@
   "name": "magenizr/magento2-resetuibookmarks",
   "description": "This Magento 2 module allows you to reset your UI bookmarks such as state of filters, column positions, grid sorting, pagination and so on.",
   "type": "magento2-module",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": [
     "OSL-3.0"
   ],
@@ -13,9 +13,6 @@
       "homepage": "https://www.magenizr.com"
     }
   ],
-  "require": {
-    "magento/framework": "^100|^101|^102|^103"
-  },
   "repositories": [
     {
       "type": "composer",

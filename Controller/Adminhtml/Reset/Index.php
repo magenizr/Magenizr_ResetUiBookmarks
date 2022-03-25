@@ -1,10 +1,9 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Magenizr ResetUiBookmarks
- *
- * @category    Magenizr
- * @package     Magenizr_ResetUiBookmarks
- * @copyright   Copyright (c) 2018 - 2021 Magenizr (http://www.magenizr.com)
+ * @copyright   Copyright (c) 2018 - 2022 Magenizr (https://www.magenizr.com)
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
 
@@ -12,31 +11,61 @@ namespace Magenizr\ResetUiBookmarks\Controller\Adminhtml\Reset;
 
 class Index extends \Magento\Backend\App\Action
 {
+    /**
+     * @var \Magento\Ui\Api\Data\BookmarkInterfaceFactory
+     */
+    protected $bookmarkFactory;
 
     /**
+     * @var \Magento\Ui\Model\ResourceModel\BookmarkRepository
+     */
+    protected $bookmarkRepository;
+
+    /**
+     * @var \Magento\Framework\Controller\ResultFactory
+     */
+    protected $resultFactory;
+
+    /**
+     * @var \Magento\Framework\App\RequestInterface
+     */
+    protected $request;
+    
+    /**
      * Index constructor.
+     *
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Ui\Api\Data\BookmarkInterfaceFactory $bookmarkFactory
      * @param \Magento\Ui\Model\ResourceModel\BookmarkRepository $bookmarkRepository
+     * @param \Magento\Framework\Controller\ResultFactory $resultFactory
+     * @param \Magento\Framework\App\RequestInterface $request
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\App\RequestInterface $request,
         \Magento\Ui\Api\Data\BookmarkInterfaceFactory $bookmarkFactory,
-        \Magento\Ui\Model\ResourceModel\BookmarkRepository $bookmarkRepository
+        \Magento\Ui\Model\ResourceModel\BookmarkRepository $bookmarkRepository,
+        \Magento\Framework\Controller\ResultFactory $resultFactory,
+        \Magento\Framework\App\RequestInterface $request
     ) {
         parent::__construct($context);
-        $this->request = $request;
+
         $this->bookmarkFactory = $bookmarkFactory;
         $this->bookmarkRepository = $bookmarkRepository;
+        $this->resultFactory = $resultFactory;
+        $this->request = $request;
     }
 
     /**
+     * Execute the controller.
+     *
      * @return mixed
      */
     public function execute()
     {
         $userId = $this->_auth->getUser()->getId();
+
+        $redirect = $this->resultRedirectFactory->create();
+        $redirect->setPath('adminhtml/system_account/index');
 
         try {
             $collection = $this->bookmarkFactory->create()->getCollection();
@@ -55,13 +84,13 @@ class Index extends \Magento\Backend\App\Action
                 $this->bookmarkRepository->deleteById($bookmark->getBookmarkId());
             }
 
-            $this->messageManager->addSuccess(__('Your UI Bookmarks were cleared successfully.'));
+            $this->messageManager->addSuccessMessage(__('Your UI Bookmarks were cleared successfully.'));
 
-            return $this->_redirect('adminhtml/system_account/index');
+            return $redirect;
         } catch (\Exception $e) {
-            $this->messageManager->addError(__('We were unable to submit your request. Please try again.'));
+            $this->messageManager->addErrorMessage(__('We were unable to submit your request. Please try again.'));
 
-            return $this->_redirect('adminhtml/system_account/index');
+            return $redirect;
         }
     }
 }
