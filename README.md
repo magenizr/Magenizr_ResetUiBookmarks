@@ -16,7 +16,7 @@ Usually a technical person ( e.g developer ) is required to reset those filters 
 
 ## Installation (Composer)
 
-1. Update your composer.json `composer require "magenizr/magento2-resetuibookmarks":"1.1.1" --no-update`
+1. Update your composer.json `composer require "magenizr/magento2-resetuibookmarks":"1.1.2" --no-update`
 2. Install dependencies and update your composer.lock `composer update --lock`
 
 ```
@@ -24,7 +24,7 @@ Usually a technical person ( e.g developer ) is required to reset those filters 
 Loading composer repositories with package information
 Updating dependencies (including require-dev)              
 Package operations: 1 install, 0 updates, 0 removals
-  - Installing magenizr/magento2-resetuibookmarks (1.1.1): Downloading (100%)
+  - Installing magenizr/magento2-resetuibookmarks (1.1.2): Downloading (100%)
 Writing lock file
 Generating autoload files
 ```
@@ -38,13 +38,13 @@ php bin/magento setup:upgrade
 
 ## Installation (Composer 2)
 
-1. Update your composer.json `composer require "magenizr/magento2-resetuibookmarks":"1.1.1" --no-update`
+1. Update your composer.json `composer require "magenizr/magento2-resetuibookmarks":"1.1.2" --no-update`
 2. Use `composer update --no-install` to update your composer.lock file.
 
 ```
 Updating dependencies
 Lock file operations: 1 install, 1 update, 0 removals
-  - Locking magenizr/magento2-resetuibookmarks (1.1.1)
+  - Locking magenizr/magento2-resetuibookmarks (1.1.2)
 ```
 
 3. And then `composer install` to install the package.
@@ -53,7 +53,7 @@ Lock file operations: 1 install, 1 update, 0 removals
 Installing dependencies from lock file (including require-dev)
 Verifying lock file contents can be installed on current platform.
 Package operations: 1 install, 0 update, 0 removals
-  - Installing magenizr/magento2-resetuibookmarks (1.1.1): Extracting archive
+  - Installing magenizr/magento2-resetuibookmarks (1.1.2): Extracting archive
 ```
 
 4. Enable the module and clear static content.
@@ -65,7 +65,7 @@ php bin/magento setup:upgrade
 
 ## Installation (Manually)
 1. Download the code.
-2. Extract the downloaded tar.gz file. Example: `tar -xzf Magenizr_ResetUiBookmarks_1.1.1.tar.gz`.
+2. Extract the downloaded tar.gz file. Example: `tar -xzf Magenizr_ResetUiBookmarks_1.1.2.tar.gz`.
 3. Copy the code into `./app/code/Magenizr/ResetUiBookmarks/`.
 4. Enable the module and clear static content.
 
@@ -80,7 +80,7 @@ php bin/magento setup:upgrade
 * Choose between the options `All Bookmarks`, `Saved Filters Only` and `Keep Saved Filters`
 
 ## Usage
-Simply hit the button `Reset UI Bookmarks` to clear the bookmarks and wait for the confirmation `Your UI bookmarks were cleared successfully`. After that all filters and grid settings are set back to default. More details are available in the attached user guide.
+Go to your `Account Settings` and hit the button `Reset UI Bookmarks` to clear the bookmarks and wait for the confirmation `Your UI bookmarks were cleared successfully`. After that all filters and grid settings are set back to default. More details are available in the attached user guide.
 
 ## Support
 If you experience any issues, don't hesitate to open an issue on [Github](https://github.com/magenizr/Magenizr_Debugger/issues). For a custom build, don't hesitate to contact us on [Magento Marketplace](https://marketplace.magento.com/partner/magenizr).
@@ -92,6 +92,9 @@ This module is available for free on [GitHub](https://github.com/magenizr). If y
 Follow us on [GitHub](https://github.com/magenizr), [Twitter](https://twitter.com/magenizr) and [Facebook](https://www.facebook.com/magenizr).
 
 ## History
+===== 1.1.2 =====
+- `setup_version=""` removed from module.xml
+
 ===== 1.1.1 =====
 * 2.4.x compatibility added
 * Cleanup various files to follow coding standard (EQP, ECG)
