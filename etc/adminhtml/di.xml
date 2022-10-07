@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\User\Block\User\Edit\Tab\Main">
+        <plugin name="admin_user_image" type="Magenizr\ResetUiBookmarks\Plugin\Block\Adminhtml\User\Edit\Tab\ResetUiBookmarks" sortOrder="1"/>
+    </type>
+</config>

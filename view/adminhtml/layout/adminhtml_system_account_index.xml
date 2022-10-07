@@ -14,8 +14,6 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block class="Magento\Backend\Block\System\Account\Edit"
-                   name="adminhtml.system.account.edit"/>
             <block class="Magento\Framework\View\Element\Template"
                    name="magenizr.resetuibookmarks.adminhtml.system.account.edit"
                    template="Magenizr_ResetUiBookmarks::system/account/resetuibookmarks.phtml"/>

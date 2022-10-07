@@ -30,7 +30,7 @@ class Index extends \Magento\Backend\App\Action
      * @var \Magento\Framework\App\RequestInterface
      */
     protected $request;
-    
+
     /**
      * Index constructor.
      *
@@ -39,13 +39,15 @@ class Index extends \Magento\Backend\App\Action
      * @param \Magento\Ui\Model\ResourceModel\BookmarkRepository $bookmarkRepository
      * @param \Magento\Framework\Controller\ResultFactory $resultFactory
      * @param \Magento\Framework\App\RequestInterface $request
+     * @param \Magento\User\Model\UserFactory $userFactory
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Ui\Api\Data\BookmarkInterfaceFactory $bookmarkFactory,
         \Magento\Ui\Model\ResourceModel\BookmarkRepository $bookmarkRepository,
         \Magento\Framework\Controller\ResultFactory $resultFactory,
-        \Magento\Framework\App\RequestInterface $request
+        \Magento\Framework\App\RequestInterface $request,
+        \Magento\User\Model\UserFactory $userFactory
     ) {
         parent::__construct($context);
 
@@ -53,6 +55,7 @@ class Index extends \Magento\Backend\App\Action
         $this->bookmarkRepository = $bookmarkRepository;
         $this->resultFactory = $resultFactory;
         $this->request = $request;
+        $this->userFactory = $userFactory;
     }
 
     /**
@@ -62,16 +65,32 @@ class Index extends \Magento\Backend\App\Action
      */
     public function execute()
     {
+        $system = true;
+        $params = $this->request->getParam('magenizr_resetuibookmarks');
+
         $userId = $this->_auth->getUser()->getId();
 
+
+        if (!empty($params['userId'])) {
+
+            $system = false;
+            $userId = $params['userId'];
+        }
+
+        $user = $this->userFactory->create()->load($userId);
+
         $redirect = $this->resultRedirectFactory->create();
-        $redirect->setPath('adminhtml/system_account/index');
+        $redirect->setPath('adminhtml/user/edit', ['user_id' => $userId]);
+
+        if ($system) {
+            $redirect->setPath('adminhtml/system_account/index');
+        }
 
         try {
             $collection = $this->bookmarkFactory->create()->getCollection();
             $collection->addFieldToFilter('user_id', ['eq' => $userId]);
 
-            switch ($this->request->getParam('identifier')) {
+            switch ($params['identifier']) {
                 case 'saved-only':
                     $collection->addFieldToFilter('identifier', ['like' => '_%']);
                     break;
@@ -80,11 +99,22 @@ class Index extends \Magento\Backend\App\Action
                     break;
             }
 
-            foreach ($collection->getItems() as $bookmark) {
-                $this->bookmarkRepository->deleteById($bookmark->getBookmarkId());
+            $message = __('No UI Bookmarks found for user (%1).', $user->getEmail());
+
+            if (!empty($collection->getItems())) {
+
+                foreach ($collection->getItems() as $bookmark) {
+                    $this->bookmarkRepository->deleteById($bookmark->getBookmarkId());
+                }
+
+                $message = __('The UI Bookmarks for user (%1) have been cleared successfully.', $user->getEmail());
+
+                if ($system) {
+                    $message = __('Your UI Bookmarks were cleared successfully.');
+                }
             }
 
-            $this->messageManager->addSuccessMessage(__('Your UI Bookmarks were cleared successfully.'));
+            $this->messageManager->addSuccessMessage($message);
 
             return $redirect;
         } catch (\Exception $e) {
