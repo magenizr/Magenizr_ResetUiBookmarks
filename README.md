@@ -93,6 +93,9 @@ This module is available for free on [GitHub](https://github.com/magenizr). If y
 Follow us on [GitHub](https://github.com/magenizr), [Twitter](https://twitter.com/magenizr) and [Facebook](https://www.facebook.com/magenizr).
 
 ## History
+===== 1.2.1 =====
+* Validation issue ( `Cannot read properties of undefined (reading 'settings')` ) on `Save User` action fixed.
+
 ===== 1.2.0 =====
 * ResetUiBookmarks Button added to `System > Permissions > All Users > {User} > User Info` so that bookmarks can be cleared for non-administrator users.
 
