@@ -69,8 +69,7 @@ class Index extends \Magento\Backend\App\Action
         $params = $this->request->getParam('magenizr_resetuibookmarks');
 
         $userId = $this->_auth->getUser()->getId();
-
-
+        
         if (!empty($params['userId'])) {
 
             $system = false;

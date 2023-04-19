@@ -14,36 +14,44 @@ class ResetUiBookmarks
      */
     public function aroundGetFormHtml(
         \Magento\User\Block\User\Edit\Tab\Main $subject,
-        \Closure $proceed
+        \Closure                               $proceed
     ) {
         $form = $subject->getForm();
-        if (is_object($form)) {
-            $fieldset = $form->getElement('base_fieldset');
-            $userId = 0;
 
-            foreach ($fieldset->getElements() as $element) {
-
-                if ($element->getId() === 'user_id') {
-                     $userId = $element->getValue();
-                }
-            }
-
-            $fieldset = $form->addFieldset('magenizr_resetuibookmarks', ['legend' => __('Bookmarks')]);
-
-            $fieldset->addField(
-                'reset_ui_bookmarks',
-                'label',
-                [
-                    'container_id' => 'reset_ui_bookmarks',
-                    'after_element_html' => $subject->getLayout()
-                        ->getBlock('magenizr.resetuibookmarks.system.account')
-                        ->setData('userId', $userId)
-                        ->toHtml()
-                ]
-            );
-            
-            $subject->setForm($form);
+        if (get_class($form) !== \Magento\Framework\Data\Form::class) {
+            return $proceed();
         }
+
+        $userId = 0;
+        $fieldset = $form->getElement('base_fieldset');
+
+        foreach ($fieldset->getElements() as $element) {
+
+            if ($element->getId() === 'user_id') {
+                $userId = $element->getValue();
+                break;
+            }
+        }
+
+        if ($userId === 0) {
+            return $proceed();
+        }
+
+        $fieldset = $form->addFieldset('magenizr_resetuibookmarks', ['legend' => __('Bookmarks')]);
+
+        $fieldset->addField(
+            'reset_ui_bookmarks',
+            'label',
+            [
+                'container_id' => 'reset_ui_bookmarks',
+                'after_element_html' => $subject->getLayout()
+                    ->getBlock('magenizr.resetuibookmarks.system.account')
+                    ->setData('userId', $userId)
+                    ->toHtml()
+            ]
+        );
+
+        $subject->setForm($form);
 
         return $proceed();
     }
