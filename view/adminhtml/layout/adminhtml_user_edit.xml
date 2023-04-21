@@ -13,7 +13,7 @@
     <body>
         <referenceContainer name="left">
             <block class="Magento\User\Block\User\Edit\Tabs" name="adminhtml.user.edit.tabs">
-                <block class="Magento\Backend\Block\Template" name="magenizr.resetuibookmarks.system.account" template="Magenizr_ResetUiBookmarks::system/account/resetuibookmarks.phtml"/>
+                <block class="Magenizr\ResetUiBookmarks\Block\System\Account\ResetUiBookmarks" name="magenizr.resetuibookmarks.system.account" template="Magenizr_ResetUiBookmarks::system/account/resetuibookmarks.phtml"/>
             </block>
         </referenceContainer>
     </body>

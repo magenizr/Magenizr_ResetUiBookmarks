@@ -14,7 +14,7 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block class="Magento\Framework\View\Element\Template"
+            <block class="Magenizr\ResetUiBookmarks\Block\System\Account\ResetUiBookmarks"
                    name="magenizr.resetuibookmarks.adminhtml.system.account.edit"
                    template="Magenizr_ResetUiBookmarks::system/account/resetuibookmarks.phtml"/>
         </referenceContainer>

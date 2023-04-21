@@ -42,13 +42,14 @@ class Index extends \Magento\Backend\App\Action
      * @param \Magento\User\Model\UserFactory $userFactory
      */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Magento\Ui\Api\Data\BookmarkInterfaceFactory $bookmarkFactory,
+        \Magento\Backend\App\Action\Context                $context,
+        \Magento\Ui\Api\Data\BookmarkInterfaceFactory      $bookmarkFactory,
         \Magento\Ui\Model\ResourceModel\BookmarkRepository $bookmarkRepository,
-        \Magento\Framework\Controller\ResultFactory $resultFactory,
-        \Magento\Framework\App\RequestInterface $request,
-        \Magento\User\Model\UserFactory $userFactory
-    ) {
+        \Magento\Framework\Controller\ResultFactory        $resultFactory,
+        \Magento\Framework\App\RequestInterface            $request,
+        \Magento\User\Model\UserFactory                    $userFactory
+    )
+    {
         parent::__construct($context);
 
         $this->bookmarkFactory = $bookmarkFactory;
@@ -69,7 +70,7 @@ class Index extends \Magento\Backend\App\Action
         $params = $this->request->getParam('magenizr_resetuibookmarks');
 
         $userId = $this->_auth->getUser()->getId();
-        
+
         if (!empty($params['userId'])) {
 
             $system = false;
@@ -94,7 +95,16 @@ class Index extends \Magento\Backend\App\Action
                     $collection->addFieldToFilter('identifier', ['like' => '_%']);
                     break;
                 case 'saved-exclude':
-                    $collection->addFieldToFilter('identifier', ['in' => ['current','default']]);
+                    $collection->addFieldToFilter('identifier', ['in' => ['current', 'default']]);
+                    break;
+            }
+
+            switch ($params['namespace']) {
+                case 'all':
+                    $collection->addFieldToFilter('namespace', ['like' => '%']);
+                    break;
+                default:
+                    $collection->addFieldToFilter('namespace', ['eq' => $params['namespace']]);
                     break;
             }
 
@@ -109,7 +119,7 @@ class Index extends \Magento\Backend\App\Action
                 $message = __('The UI Bookmarks for user (%1) have been cleared successfully.', $user->getEmail());
 
                 if ($system) {
-                    $message = __('Your UI Bookmarks were cleared successfully.');
+                    $message = __('Your UI Bookmarks have been cleared successfully.');
                 }
             }
 

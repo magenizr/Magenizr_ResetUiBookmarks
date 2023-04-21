@@ -25,15 +25,31 @@
                     ['_current' => true, '_use_rewrite' => true]
                 )) ?>" method="get">
 
-                    <button id="reset" title="Reset UI Bookmarks" type="submit" class="action-default scalable button-danger" role="button" aria-disabled="false">
-                        <span><?= $escaper->escapeHtml(__('Reset UI Bookmarks')) ?></span>
-                    </button>
+                    <div class="row">
+                        <span class="label"><?= $escaper->escapeHtml(__('Bookmarks')) ?></span>
+                        <select id="identifier" name="magenizr_resetuibookmarks[identifier]" title="Identifier" class="select select admin__control-select ignore-validate">
+                            <option value="saved-exclude"><?= $escaper->escapeHtml(__('Keep Saved Filters')) ?></option>
+                            <option value="saved-only"><?= $escaper->escapeHtml(__('Saved Filters Only')) ?></option>
+                            <option value="all"><?= $escaper->escapeHtml(__('All Bookmarks')) ?></option>
+                        </select>
+                    </div>
 
-                    <select id="identifier" name="magenizr_resetuibookmarks[identifier]" title="Identifier" class="select select admin__control-select ignore-validate">
-                        <option value="saved-exclude"><?= $escaper->escapeHtml(__('Keep Saved Filters')) ?></option>
-                        <option value="saved-only"><?= $escaper->escapeHtml(__('Saved Filters Only')) ?></option>
-                        <option value="all"><?= $escaper->escapeHtml(__('All Bookmarks')) ?></option>
-                    </select>
+                    <div class="row">
+                        <span class="label"><?= $escaper->escapeHtml(__('Namespace')) ?></span>
+                        <select id="namespace" name="magenizr_resetuibookmarks[namespace]" title="Namespace" class="select select admin__control-select ignore-validate">
+                            <option value="all"><?= $escaper->escapeHtml(__('All Namespaces')) ?></option>
+                            <?php foreach ($block->getNamespaceList() as $namespace => $name): ?>
+                                <option value="<?= $escaper->escapeHtml($namespace); ?>"><?= $escaper->escapeHtml($name); ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <span class="label">&nbsp;</span>
+                        <button id="reset" title="Reset UI Bookmarks" type="submit" class="action-default scalable button-danger" role="button" aria-disabled="false">
+                            <span><?= $escaper->escapeHtml(__('Reset UI Bookmarks')) ?></span>
+                        </button>
+                    </div>
 
                     <input type="hidden" name="magenizr_resetuibookmarks[userId]" value="<?= $escaper->escapeHtml($block->getData('userId')); ?>" class="ignore-validate" />
                 </form>

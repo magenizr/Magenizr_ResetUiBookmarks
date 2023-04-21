@@ -1,10 +1,17 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * Magenizr ResetUiBookmarks
+ * @copyright   Copyright (c) 2018 - 2022 Magenizr (https://www.magenizr.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+
 namespace Magenizr\ResetUiBookmarks\Plugin\Block\Adminhtml\User\Edit\Tab;
 
 class ResetUiBookmarks
 {
+
     /**
      * Add fieldset for reset ui bookmarks
      *
@@ -36,7 +43,7 @@ class ResetUiBookmarks
         if ($userId === 0) {
             return $proceed();
         }
-
+        
         $fieldset = $form->addFieldset('magenizr_resetuibookmarks', ['legend' => __('Bookmarks')]);
 
         $fieldset->addField(
