@@ -1,3 +1,6 @@
+[![Magenizr Plus](https://images2.imgbox.com/11/6b/yVOOloaA_o.gif)](https://account.magenizr.com)
+---
+
 # Reset Ui Bookmarks
 Reset UI Bookmarks becomes an invaluable tool while working daily in the admin panel, especially on Magento® instances with a large catalogue. The regular use of grid filters, applied sorting ( e.g `Sales > Orders or Catalog > Product` ) or other options provided by third party integrations can cause server time-outs ( depending on the filter combinations ) and make the grid tables unusable. With Reset UI Bookmarks any admin user can reset their filters back to default without having an agency support team involved.
 
@@ -14,27 +17,6 @@ Usually a technical person ( e.g developer ) is required to reset those filters 
 ## System Requirements
 - Magento 2.3.x, 2.4.x
 - PHP 5.6.x, 7.x
-
-## Installation (Composer)
-
-1. Update your composer.json `composer require "magenizr/magento2-resetuibookmarks":"1.3.0" --no-update`
-2. Install dependencies and update your composer.lock `composer update magenizr/magento2-resetuibookmarks --lock`
-
-```
-./composer.json has been updated
-Loading composer repositories with package information
-Updating dependencies (including require-dev)              
-Package operations: 1 install, 0 updates, 0 removals
-  - Installing magenizr/magento2-resetuibookmarks (1.3.0): Downloading (100%)
-Writing lock file
-Generating autoload files
-```
-
-3. Enable the module and clear static content.
-
-```
-php bin/magento module:enable Magenizr_ResetUiBookmarks
-```
 
 ## Installation (Composer 2)
 
@@ -83,10 +65,10 @@ php bin/magento setup:upgrade
 Simply hit the button `Reset UI Bookmarks` to clear the bookmarks and wait for the confirmation `Your UI bookmarks were cleared successfully`. After that all filters and grid settings are set back to default. More details are available in the attached user guide.
 
 ## Support
-If you experience any issues, don't hesitate to open an issue on [Github](https://github.com/magenizr/Magenizr_Debugger/issues). For a custom build, don't hesitate to contact us via [https://account.magenizr.com](https://account.magenizr.com).
+If you experience any issues, don't hesitate to open an issue on [Github](https://github.com/magenizr/Magenizr_Debugger/issues).
 
 ## Purchase
-This module is available for free on [GitHub](https://github.com/magenizr). If you purchase this module on [https://account.magenizr.com](https://account.magenizr.com) offer support and regular updates.
+This module is available for free on [GitHub](https://github.com/magenizr).
 
 ## Contact
 Follow us on [GitHub](https://github.com/magenizr), [Twitter](https://twitter.com/magenizr) and [Facebook](https://www.facebook.com/magenizr).
