@@ -32,6 +32,11 @@ class Index extends \Magento\Backend\App\Action
     protected $request;
 
     /**
+     * @var \Magento\User\Model\UserFactory 
+     */
+    protected $userFactory;
+
+    /**
      * Index constructor.
      *
      * @param \Magento\Backend\App\Action\Context $context
