@@ -40,10 +40,12 @@ class ResetUiBookmarks
             }
         }
 
-        if ($userId === 0) {
+        $block = $subject->getLayout()->getBlock('magenizr.resetuibookmarks.system.account');
+
+        if ($userId === 0 || !$block) {
             return $proceed();
         }
-        
+
         $fieldset = $form->addFieldset('magenizr_resetuibookmarks', ['legend' => __('Bookmarks')]);
 
         $fieldset->addField(
@@ -51,8 +53,7 @@ class ResetUiBookmarks
             'label',
             [
                 'container_id' => 'reset_ui_bookmarks',
-                'after_element_html' => $subject->getLayout()
-                    ->getBlock('magenizr.resetuibookmarks.system.account')
+                'after_element_html' => $block
                     ->setData('userId', $userId)
                     ->toHtml()
             ]
