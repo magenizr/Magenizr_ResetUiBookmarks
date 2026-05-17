@@ -1,4 +1,3 @@
-[![Magenizr Plus](https://images2.imgbox.com/11/6b/yVOOloaA_o.gif)](https://account.magenizr.com)
 ---
 [![Latest Stable Version](https://poser.pugx.org/magenizr/magento2-resetuibookmarks/v)](https://packagist.org/packages/magenizr/magento2-resetuibookmarks) [![Total Downloads](https://poser.pugx.org/magenizr/magento2-resetuibookmarks/downloads)](https://packagist.org/packages/magenizr/magento2-resetuibookmarks) [![Latest Unstable Version](https://poser.pugx.org/magenizr/magento2-resetuibookmarks/v/unstable)](https://packagist.org/packages/magenizr/magento2-resetuibookmarks) [![License](https://poser.pugx.org/magenizr/magento2-resetuibookmarks/license)](https://packagist.org/packages/magenizr/magento2-resetuibookmarks) [![PHP Version Require](https://poser.pugx.org/magenizr/magento2-resetuibookmarks/require/php)](https://packagist.org/packages/magenizr/magento2-resetuibookmarks)
 
