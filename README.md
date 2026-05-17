@@ -124,3 +124,11 @@ Built and maintained by [Magenizr](https://www.magenizr.com.au/) — an Australi
 - [Our Services](https://www.magenizr.com.au/services/adobe-commerce/) — Custom modules, migrations, support
 - [Book a Free Consultation](https://www.magenizr.com.au/book/) — 30-minute call, no obligation
 - [All Open-Source Modules](https://github.com/magenizr) — Our full collection on GitHub
+
+## Über [Magenizr](https://www.magenizr.com.au/de/)
+
+Entwickelt und gepflegt von [Magenizr](https://www.magenizr.com.au/de/) — einer australischen [Magento & Adobe Commerce Agentur](https://www.magenizr.com.au/de/services/adobe-commerce/) mit Fokus auf die DACH-Region. Wir entwickeln individuelle Magento-Module, übernehmen Plattform-Migrationen und bieten laufenden Support für Unternehmen in Berlin, Hamburg, München, Frankfurt, Köln, Stuttgart, Düsseldorf, Wien, Graz, Salzburg, Zürich, Basel und Bern.
+
+- [Unsere Leistungen](https://www.magenizr.com.au/de/services/adobe-commerce/) — Module, Migrationen, Support
+- [Kostenlose Erstberatung](https://www.magenizr.com.au/de/book/) — 30 Minuten, unverbindlich
+- [Alle Open-Source-Module](https://github.com/magenizr) — Unsere komplette Sammlung auf GitHub
