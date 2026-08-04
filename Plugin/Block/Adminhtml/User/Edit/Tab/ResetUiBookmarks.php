@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 /**
  * Magenizr ResetUiBookmarks
- * @copyright   Copyright (c) 2018 - 2022 Magenizr (https://www.magenizr.com)
+ * @copyright   Copyright (c) 2018 - 2024 Magenizr (https://magenizr.com.au)
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
 
@@ -13,20 +13,18 @@ class ResetUiBookmarks
 {
 
     /**
-     * Add fieldset for reset ui bookmarks
+     * Add fieldset for reset ui bookmarks before the form html is rendered
      *
      * @param \Magento\User\Block\User\Edit\Tab\Main $subject
-     * @param \Closure $proceed
-     * @return mixed
+     * @return void
      */
-    public function aroundGetFormHtml(
-        \Magento\User\Block\User\Edit\Tab\Main $subject,
-        \Closure                               $proceed
+    public function beforeGetFormHtml(
+        \Magento\User\Block\User\Edit\Tab\Main $subject
     ) {
         $form = $subject->getForm();
 
-        if (get_class($form) !== \Magento\Framework\Data\Form::class) {
-            return $proceed();
+        if (!$form instanceof \Magento\Framework\Data\Form) {
+            return;
         }
 
         $userId = 0;
@@ -43,7 +41,7 @@ class ResetUiBookmarks
         $block = $subject->getLayout()->getBlock('magenizr.resetuibookmarks.system.account');
 
         if ($userId === 0 || !$block) {
-            return $proceed();
+            return;
         }
 
         $fieldset = $form->addFieldset('magenizr_resetuibookmarks', ['legend' => __('Bookmarks')]);
@@ -60,7 +58,5 @@ class ResetUiBookmarks
         );
 
         $subject->setForm($form);
-
-        return $proceed();
     }
 }

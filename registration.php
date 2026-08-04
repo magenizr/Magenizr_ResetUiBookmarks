@@ -1,7 +1,7 @@
 <?php
 /**
  * Magenizr ResetUiBookmarks
- * @copyright   Copyright (c) 2018 - 2022 Magenizr (https://www.magenizr.com)
+ * @copyright   Copyright (c) 2018 - 2024 Magenizr (https://magenizr.com.au)
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
 

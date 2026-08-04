@@ -15,17 +15,17 @@ Usually a technical person ( e.g developer ) is required to reset those filters 
 
 ## System Requirements
 - Magento 2.3.x, 2.4.x
-- PHP 7.x, 8.1
+- PHP 7.x, 8.x
 
 ## Installation (Composer 2)
 
-1. Update your composer.json `composer require "magenizr/magento2-resetuibookmarks":"1.3.2" --no-update`
+1. Update your composer.json `composer require "magenizr/magento2-resetuibookmarks":"1.4.0" --no-update`
 2. Use `composer update magenizr/magento2-resetuibookmarks --no-install` to update your composer.lock file.
 
 ```
 Updating dependencies
 Lock file operations: 1 install, 1 update, 0 removals
-  - Locking magenizr/magento2-resetuibookmarks (1.3.2)
+  - Locking magenizr/magento2-resetuibookmarks (1.4.0)
 ```
 
 3. And then `composer install` to install the package.
@@ -34,7 +34,7 @@ Lock file operations: 1 install, 1 update, 0 removals
 Installing dependencies from lock file (including require-dev)
 Verifying lock file contents can be installed on current platform.
 Package operations: 1 install, 0 update, 0 removals
-  - Installing magenizr/magento2-resetuibookmarks (1.3.2): Extracting archive
+  - Installing magenizr/magento2-resetuibookmarks (1.4.0): Extracting archive
 ```
 
 4. Enable the module and clear static content.
@@ -45,7 +45,7 @@ php bin/magento module:enable Magenizr_ResetUiBookmarks
 
 ## Installation (Manually)
 1. Download the code.
-2. Extract the downloaded tar.gz file. Example: `tar -xzf Magenizr_ResetUiBookmarks_1.3.2.tar.gz`.
+2. Extract the downloaded tar.gz file. Example: `tar -xzf Magenizr_ResetUiBookmarks_1.4.0.tar.gz`.
 3. Copy the code into `./app/code/Magenizr/ResetUiBookmarks/`.
 4. Enable the module and clear static content.
 
@@ -67,6 +67,15 @@ Simply hit the button `Reset UI Bookmarks` to clear the bookmarks and wait for t
 If you experience any issues, don't hesitate to open an issue on [Github](https://github.com/magenizr/Magenizr_Debugger/issues).
 
 ## History
+===== 1.4.0 =====
+* Security: reset now runs as a POST action with form key (CSRF) validation instead of GET
+* Add ACL resource `Magenizr_ResetUiBookmarks::reset` and `etc/acl.xml` so the reset action can be restricted per admin role
+* Fix PHP 8 TypeError: guard against null `$params` when the reset URL is accessed without form parameters
+* Performance: load distinct namespaces only when building the namespace dropdown
+* Convert the User Info form plugin from `around` to `before`
+* Remove unused controller dependencies and declare a PHP version constraint in composer.json
+* Update copyright URL from magenizr.com to magenizr.com.au across all files
+
 ===== 1.3.2 =====
 * Fix Call to a member function setData() on bool
 
@@ -115,18 +124,18 @@ If you experience any issues, don't hesitate to open an issue on [Github](https:
 
 ---
 
-## About [Magenizr](https://www.magenizr.com.au/)
+## About [Magenizr](https://magenizr.com.au/)
 
-Built and maintained by [Magenizr](https://www.magenizr.com.au/) — an Australian [Adobe Commerce & Magento development agency](https://www.magenizr.com.au/services/adobe-commerce/) based in Bendigo, Victoria. We build custom Magento modules, handle platform migrations, and provide ongoing support for businesses across [Melbourne](https://www.magenizr.com.au/web-development-melbourne/), Sydney, Brisbane and the DACH region.
+Built and maintained by [Magenizr](https://magenizr.com.au/) — an Australian [Adobe Commerce & Magento development agency](https://magenizr.com.au/services/adobe-commerce/) based in Bendigo, Victoria. We build custom Magento modules, handle platform migrations, and provide ongoing support for businesses across [Melbourne](https://magenizr.com.au/web-development-melbourne/), Sydney, Brisbane and the DACH region.
 
-- [Our Services](https://www.magenizr.com.au/services/adobe-commerce/) — Custom modules, migrations, support
-- [Book a Free Consultation](https://www.magenizr.com.au/book/) — 30-minute call, no obligation
+- [Our Services](https://magenizr.com.au/services/adobe-commerce/) — Custom modules, migrations, support
+- [Book a Free Consultation](https://magenizr.com.au/book/) — 30-minute call, no obligation
 - [All Open-Source Modules](https://github.com/magenizr) — Our full collection on GitHub
 
-## Über [Magenizr](https://www.magenizr.com.au/de/)
+## Über [Magenizr](https://magenizr.com.au/de/)
 
-Entwickelt und gepflegt von [Magenizr](https://www.magenizr.com.au/de/) — einer australischen [Magento & Adobe Commerce Agentur](https://www.magenizr.com.au/de/services/adobe-commerce/) mit Fokus auf die DACH-Region. Wir entwickeln individuelle Magento-Module, übernehmen Plattform-Migrationen und bieten laufenden Support für Unternehmen in Berlin, Hamburg, München, Frankfurt, Köln, Stuttgart, Düsseldorf, Wien, Graz, Salzburg, Zürich, Basel und Bern.
+Entwickelt und gepflegt von [Magenizr](https://magenizr.com.au/de/) — einer australischen [Magento & Adobe Commerce Agentur](https://magenizr.com.au/de/services/adobe-commerce/) mit Fokus auf die DACH-Region. Wir entwickeln individuelle Magento-Module, übernehmen Plattform-Migrationen und bieten laufenden Support für Unternehmen in Berlin, Hamburg, München, Frankfurt, Köln, Stuttgart, Düsseldorf, Wien, Graz, Salzburg, Zürich, Basel und Bern.
 
-- [Unsere Leistungen](https://www.magenizr.com.au/de/services/adobe-commerce/) — Module, Migrationen, Support
-- [Kostenlose Erstberatung](https://www.magenizr.com.au/de/book/) — 30 Minuten, unverbindlich
+- [Unsere Leistungen](https://magenizr.com.au/de/services/adobe-commerce/) — Module, Migrationen, Support
+- [Kostenlose Erstberatung](https://magenizr.com.au/de/book/) — 30 Minuten, unverbindlich
 - [Alle Open-Source-Module](https://github.com/magenizr) — Unsere komplette Sammlung auf GitHub

@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 /**
  * Magenizr ResetUiBookmarks
- * @copyright   Copyright (c) 2018 - 2022 Magenizr (https://www.magenizr.com)
+ * @copyright   Copyright (c) 2018 - 2024 Magenizr (https://magenizr.com.au)
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
 
@@ -44,6 +44,7 @@ class ResetUiBookmarks extends \Magento\Backend\Block\Template
         $items = $this->bookmarkFactory->create()
             ->getCollection()
             ->addFieldToSelect('namespace')
+            ->distinct(true)
             ->addOrder('namespace', \Magento\Framework\DB\Select::SQL_DESC)
             ->getItems();
 

@@ -3,14 +3,18 @@ declare(strict_types=1);
 
 /**
  * Magenizr ResetUiBookmarks
- * @copyright   Copyright (c) 2018 - 2022 Magenizr (https://www.magenizr.com)
+ * @copyright   Copyright (c) 2018 - 2024 Magenizr (https://magenizr.com.au)
  * @license     http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  */
 
 namespace Magenizr\ResetUiBookmarks\Controller\Adminhtml\Reset;
 
-class Index extends \Magento\Backend\App\Action
+use Magento\Framework\App\Action\HttpPostActionInterface;
+
+class Index extends \Magento\Backend\App\Action implements HttpPostActionInterface
 {
+    const ADMIN_RESOURCE = 'Magenizr_ResetUiBookmarks::reset';
+
     /**
      * @var \Magento\Ui\Api\Data\BookmarkInterfaceFactory
      */
@@ -22,17 +26,7 @@ class Index extends \Magento\Backend\App\Action
     protected $bookmarkRepository;
 
     /**
-     * @var \Magento\Framework\Controller\ResultFactory
-     */
-    protected $resultFactory;
-
-    /**
-     * @var \Magento\Framework\App\RequestInterface
-     */
-    protected $request;
-
-    /**
-     * @var \Magento\User\Model\UserFactory 
+     * @var \Magento\User\Model\UserFactory
      */
     protected $userFactory;
 
@@ -42,16 +36,12 @@ class Index extends \Magento\Backend\App\Action
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Ui\Api\Data\BookmarkInterfaceFactory $bookmarkFactory
      * @param \Magento\Ui\Model\ResourceModel\BookmarkRepository $bookmarkRepository
-     * @param \Magento\Framework\Controller\ResultFactory $resultFactory
-     * @param \Magento\Framework\App\RequestInterface $request
      * @param \Magento\User\Model\UserFactory $userFactory
      */
     public function __construct(
         \Magento\Backend\App\Action\Context                $context,
         \Magento\Ui\Api\Data\BookmarkInterfaceFactory      $bookmarkFactory,
         \Magento\Ui\Model\ResourceModel\BookmarkRepository $bookmarkRepository,
-        \Magento\Framework\Controller\ResultFactory        $resultFactory,
-        \Magento\Framework\App\RequestInterface            $request,
         \Magento\User\Model\UserFactory                    $userFactory
     )
     {
@@ -59,20 +49,18 @@ class Index extends \Magento\Backend\App\Action
 
         $this->bookmarkFactory = $bookmarkFactory;
         $this->bookmarkRepository = $bookmarkRepository;
-        $this->resultFactory = $resultFactory;
-        $this->request = $request;
         $this->userFactory = $userFactory;
     }
 
     /**
      * Execute the controller.
      *
-     * @return mixed
+     * @return \Magento\Framework\Controller\ResultInterface
      */
     public function execute()
     {
         $system = true;
-        $params = $this->request->getParam('magenizr_resetuibookmarks');
+        $params = $this->getRequest()->getParam('magenizr_resetuibookmarks');
 
         $userId = $this->_auth->getUser()->getId();
 
@@ -92,6 +80,11 @@ class Index extends \Magento\Backend\App\Action
         }
 
         try {
+            if (!is_array($params) || !isset($params['identifier'], $params['namespace'])) {
+                $this->messageManager->addErrorMessage(__('Invalid request parameters.'));
+                return $redirect;
+            }
+
             $collection = $this->bookmarkFactory->create()->getCollection();
             $collection->addFieldToFilter('user_id', ['eq' => $userId]);
 
