@@ -14,8 +14,10 @@ Usually a technical person ( e.g developer ) is required to reset those filters 
 * Practical for small businesses, which can not afford expensive agency support.
 
 ## System Requirements
-- Magento 2.3.x, 2.4.x
-- PHP 7.x, 8.x
+- Magento 2.4.7, 2.4.8, 2.4.9
+- PHP 8.2, 8.3, 8.4, 8.5
+
+Stores on PHP 7.4 to 8.1 or Magento 2.3.x to 2.4.6 should stay on release 1.4.0 (`composer require magenizr/magento2-resetuibookmarks:1.4.0`), which allows PHP 7.4 to 8.3.
 
 ## Installation (Composer 2)
 
