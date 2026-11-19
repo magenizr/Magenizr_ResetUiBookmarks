@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Magenizr\ResetUiBookmarks\Controller\Adminhtml\Reset;
 
 use Magento\Framework\App\Action\HttpPostActionInterface;
+use Magento\User\Model\ResourceModel\User as UserResource;
 
 class Index extends \Magento\Backend\App\Action implements HttpPostActionInterface
 {
@@ -31,25 +32,32 @@ class Index extends \Magento\Backend\App\Action implements HttpPostActionInterfa
     protected $userFactory;
 
     /**
+     * @var UserResource
+     */
+    protected $userResource;
+
+    /**
      * Index constructor.
      *
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Ui\Api\Data\BookmarkInterfaceFactory $bookmarkFactory
      * @param \Magento\Ui\Model\ResourceModel\BookmarkRepository $bookmarkRepository
      * @param \Magento\User\Model\UserFactory $userFactory
+     * @param UserResource $userResource
      */
     public function __construct(
         \Magento\Backend\App\Action\Context                $context,
         \Magento\Ui\Api\Data\BookmarkInterfaceFactory      $bookmarkFactory,
         \Magento\Ui\Model\ResourceModel\BookmarkRepository $bookmarkRepository,
-        \Magento\User\Model\UserFactory                    $userFactory
-    )
-    {
+        \Magento\User\Model\UserFactory                    $userFactory,
+        UserResource                                       $userResource
+    ) {
         parent::__construct($context);
 
         $this->bookmarkFactory = $bookmarkFactory;
         $this->bookmarkRepository = $bookmarkRepository;
         $this->userFactory = $userFactory;
+        $this->userResource = $userResource;
     }
 
     /**
@@ -70,7 +78,8 @@ class Index extends \Magento\Backend\App\Action implements HttpPostActionInterfa
             $userId = $params['userId'];
         }
 
-        $user = $this->userFactory->create()->load($userId);
+        $user = $this->userFactory->create();
+        $this->userResource->load($user, $userId);
 
         $redirect = $this->resultRedirectFactory->create();
         $redirect->setPath('adminhtml/user/edit', ['user_id' => $userId]);
